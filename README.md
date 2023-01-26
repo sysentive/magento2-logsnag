@@ -13,6 +13,7 @@ Magento 2 LogSnag Plugin allows stores owners to send order events to LogSnag (e
 - [X] Add to packagist
 - [ ] Send new shipment event
 - [ ] Send out of stock event
+- [ ] Push stats to LogSnag Insights
 
 ## Support Us
 
@@ -61,6 +62,11 @@ php bin/magento module:enable Sysentive_LogSnag
 php bin/magento setup:upgrade
 php bin/magento setup:di:compile
 ```
+
+## Use Cases
+- Send a push notification to your phone when an order is placed on Magento 2
+- Get a notification when an order is placed on Magento 2
+- Track when an order is placed on Magento 2
 
 ## License
 
