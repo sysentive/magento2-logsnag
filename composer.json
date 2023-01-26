@@ -1,0 +1,36 @@
+{
+  "name": "sysentive/magento2-logsnag",
+  "description": "Magento 2 LogSnag Plugin allows stores owners to send order events to LogSnag (event tracking tool) and receive push notifications when order is placed, shipped, etc.",
+  "type": "magento2-module",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://repo.magento.com/"
+    }
+  ],
+  "require": {
+    "magento/framework": ">=100.0.20",
+    "magento/module-sales": ">=100.0.16"
+  },
+  "require-dev": {
+    "magento/magento-coding-standard": "*"
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Sysentive\\LogSnag\\": ""
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+    ],
+    "post-update-cmd": [
+      "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+    ]
+  }
+}
