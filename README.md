@@ -1,19 +1,56 @@
 # Magento 2 LogSnag plugin
 Magento 2 LogSnag Plugin allows stores owners to send order events to LogSnag (event tracking tool) and receive push notifications when order is placed, shipped, etc.
 
+[![Latest Stable Version](https://poser.pugx.org/sysentive/magento2-logsnag/v/stable)](https://poser.pugx.org/sysentive/magento2-logsnag/v/stable)
+[![Total Downloads](https://poser.pugx.org/sysentive/magento2-logsnag/downloads)](https://poser.pugx.org/sysentive/magento2-logsnag/downloads)
+
 ## Roadmap
 
 > **Warning**
 > This is work in progress. We are building this in public.
 - [X] Configuration in admin
 - [X] Send new order event
-- [ ] Add to packagist
+- [X] Add to packagist
 - [ ] Send new shipment event
 - [ ] Send out of stock event
 
+## Support Us
+
+At the moment, the best way of supporting us it to use this extension and contribute to the issues, bug reports and discussions here at our GitHub repo. 
+
+If you'd like to support us a little more, then you could always...<br><br>
+<a href='https://ko-fi.com/hellodamien' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
+<br><br>
+
 ## 1. How to install Magento 2 LogSnag extension
 
-### Install module via composer (coming soon)
+### Install module via composer (recommend)
+
+We recommend you to install Sysentive_LogSnag module via composer. It is easy to install, update and maintain.
+
+Run the following command in Magento 2 root folder.
+
+#### 1.1 Install
+
+```
+composer require sysentive/magento2-logsnag
+php bin/magento setup:upgrade
+php bin/magento setup:static-content:deploy
+```
+
+#### 1.2 Upgrade
+
+```
+composer update sysentive/magento2-logsnag
+php bin/magento setup:upgrade
+php bin/magento setup:static-content:deploy
+```
+
+Run compile if your are in Production mode:
+
+```
+php bin/magento setup:di:compile
+```
 
 ### Install Package from copy-paste package
 
