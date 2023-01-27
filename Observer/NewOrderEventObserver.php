@@ -46,6 +46,7 @@ class NewOrderEventObserver implements ObserverInterface
                     $config['description'],
                     $config['icon'],
                     $config['notify'],
+                    $config['parser'],
                     $tags
                 );
 
