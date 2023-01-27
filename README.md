@@ -4,6 +4,8 @@ Magento 2 LogSnag Plugin allows stores owners to send order events to LogSnag (e
 [![Latest Stable Version](https://poser.pugx.org/sysentive/magento2-logsnag/v/stable)](https://packagist.org/packages/sysentive/magento2-logsnag)
 [![Total Downloads](https://poser.pugx.org/sysentive/magento2-logsnag/downloads)](https://packagist.org/packages/sysentive/magento2-logsnag)
 
+![Magento 2 LogSnag plugin screenshot](magento2-logsnag-screenshot.jpg)
+
 ## Roadmap
 
 > **Warning**
