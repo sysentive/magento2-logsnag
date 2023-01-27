@@ -11,17 +11,12 @@ Magento 2 LogSnag Plugin allows stores owners to send order events to LogSnag (e
 - [X] Configuration in admin
 - [X] Send new order event
 - [X] Add to packagist
+- [X] Allow toggle parser text/markdown
+- [ ] Add "Test event" button in config
+- [ ] Add logs to debug/monitor
 - [ ] Send new shipment event
 - [ ] Send out of stock event
 - [ ] Push stats to LogSnag Insights
-
-## Support Us
-
-At the moment, the best way of supporting us it to use this extension and contribute to the issues, bug reports and discussions here at our GitHub repo. 
-
-If you'd like to support us a little more, then you could always...<br><br>
-<a href='https://ko-fi.com/hellodamien' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
-<br><br>
 
 ## 1. How to install Magento 2 LogSnag extension
 
@@ -67,6 +62,13 @@ php bin/magento setup:di:compile
 - Send a push notification to your phone when an order is placed on Magento 2
 - Get a notification when an order is placed on Magento 2
 - Track when an order is placed on Magento 2
+
+## Support Us
+At the moment, the best way of supporting us it to use this extension and contribute to the issues, bug reports and discussions here at our GitHub repo. 
+
+If you'd like to support us a little more, then you could always...<br><br>
+<a href='https://ko-fi.com/hellodamien' target='_blank'><img height='35' style='border:0px;height:46px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=0' border='0' alt='Buy Me a Coffee at ko-fi.com' />
+<br><br>
 
 ## License
 

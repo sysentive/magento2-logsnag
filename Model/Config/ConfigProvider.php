@@ -18,6 +18,7 @@ class ConfigProvider
   const LOGSNAG_ORDER_PLACED_EVENT = 'logsnag/new_order_event/event';
   const LOGSNAG_ORDER_PLACED_ORDER_STATUS_TRIGGER = 'logsnag/new_order_event/order_status_trigger';
   const LOGSNAG_ORDER_PLACED_NOTIFY = 'logsnag/new_order_event/notify';
+  const LOGSNAG_ORDER_PLACED_PARSER = 'logsnag/new_order_event/parser';
 
   /**
    * @var ScopeConfigInterface
@@ -40,7 +41,7 @@ class ConfigProvider
    */
   public function getApiToken(): string
   {
-    return (string) $this->scopeConfig->getValue(
+    return (string) $this->getDefaultValue(
       self::LOGSNAG_API_TOKEN,
       ScopeConfigInterface::SCOPE_TYPE_DEFAULT
     );
@@ -48,47 +49,43 @@ class ConfigProvider
 
   public function getApiProject(): string
   {
-    return (string) $this->scopeConfig->getValue(
-      self::LOGSNAG_API_PROJECT,
-      ScopeConfigInterface::SCOPE_TYPE_DEFAULT
+    return (string) $this->getDefaultValue(
+      self::LOGSNAG_API_PROJECT
     );
   }
 
   public function getNewOrderEventConfig(): array
   {
-    $enable = (bool) $this->scopeConfig->getValue(
-      self::LOGSNAG_ORDER_PLACED_ENABLE,
-      ScopeConfigInterface::SCOPE_TYPE_DEFAULT
+    $enable = (bool) $this->getDefaultValue(
+      self::LOGSNAG_ORDER_PLACED_ENABLE
     );
 
-    $channel = (string) $this->scopeConfig->getValue(
-      self::LOGSNAG_ORDER_PLACED_CHANNEL,
-      ScopeConfigInterface::SCOPE_TYPE_DEFAULT
+    $channel = (string) $this->getDefaultValue(
+      self::LOGSNAG_ORDER_PLACED_CHANNEL
     );
 
     $description = (string) $this->scopeConfig->getValue(
-      self::LOGSNAG_ORDER_PLACED_DESCRIPTION,
-      ScopeConfigInterface::SCOPE_TYPE_DEFAULT
+      self::LOGSNAG_ORDER_PLACED_DESCRIPTION
     );
 
-    $event = (string) $this->scopeConfig->getValue(
-      self::LOGSNAG_ORDER_PLACED_EVENT,
-      ScopeConfigInterface::SCOPE_TYPE_DEFAULT
+    $event = (string) $this->getDefaultValue(
+      self::LOGSNAG_ORDER_PLACED_EVENT
     );
 
-    $icon = (string) $this->scopeConfig->getValue(
-      self::LOGSNAG_ORDER_PLACED_ICON,
-      ScopeConfigInterface::SCOPE_TYPE_DEFAULT
+    $icon = (string) $this->getDefaultValue(
+      self::LOGSNAG_ORDER_PLACED_ICON
     );
 
-    $orderStatusTrigger = (string) $this->scopeConfig->getValue(
-      self::LOGSNAG_ORDER_PLACED_ORDER_STATUS_TRIGGER,
-      ScopeConfigInterface::SCOPE_TYPE_DEFAULT
+    $orderStatusTrigger = (string) $this->getDefaultValue(
+      self::LOGSNAG_ORDER_PLACED_ORDER_STATUS_TRIGGER
     );
 
-    $notify = (bool) $this->scopeConfig->getValue(
-      self::LOGSNAG_ORDER_PLACED_NOTIFY,
-      ScopeConfigInterface::SCOPE_TYPE_DEFAULT
+    $notify = (bool) $this->getDefaultValue(
+      self::LOGSNAG_ORDER_PLACED_NOTIFY
+    );
+
+    $parser = (string) $this->getDefaultValue(
+      self::LOGSNAG_ORDER_PLACED_PARSER
     );
 
     return [
@@ -98,7 +95,16 @@ class ConfigProvider
       'description' => $description,
       'event' => $event,
       'icon' => json_decode($icon),
-      'notify' => $notify
+      'notify' => $notify,
+      'parser' => $parser,
     ];
+  }
+
+  public function getDefaultValue($path)
+  {
+    return $this->scopeConfig->getValue(
+      $path,
+      ScopeConfigInterface::SCOPE_TYPE_DEFAULT
+    );
   }
 }

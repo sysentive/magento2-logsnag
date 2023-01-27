@@ -4,6 +4,8 @@
         <logsnag>
             <new_order_event>
                 <enable>0</enable>
+                <parser>text</parser>
             </new_order_event>
+        </logsnag>
     </default>
 </config>

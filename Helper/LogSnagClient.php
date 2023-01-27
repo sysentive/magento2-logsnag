@@ -14,14 +14,14 @@ class LogSnagClient
     $this->config = $configProvider;
   }
 
-  public function sendEvent($channel, $event, $description, $icon, $notify = false, $tags = [])
+  public function sendEvent($channel, $event, $description, $icon, $notify = false, $parser = 'text', $tags = [])
   {
     $url = 'https://api.logsnag.com/v1/log';
     $httpRequest = 'POST';
 
     $templateValues = [];
     foreach ($tags as $key => $value) {
-      $templateValues['{{'.$key.'}}'] = $value;
+      $templateValues['{{' . $key . '}}'] = $value;
     }
 
     $data = [
@@ -30,6 +30,7 @@ class LogSnagClient
       'description' => strtr($description, $templateValues),
       'icon' => $icon,
       'notify' => $notify,
+      'parser' => $parser,
       'tags' => $tags
     ];
 
