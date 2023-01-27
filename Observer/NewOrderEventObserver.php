@@ -34,7 +34,7 @@ class NewOrderEventObserver implements ObserverInterface
             if ($config['enable'] && $order->getStatus() == $config['order_status_trigger'] && !$triggered) {
                 $tags = [
                     'number' => $order->getIncrementId(),
-                    'total' => $order->getGrandTotal(),
+                    'total' => number_format($order->getGrandTotal(), 2, '.', ','),
                     'email' => $order->getCustomerEmail(),
                     'shipping' => $order->getShippingDescription(),
                     'currency' => $this->priceCurrency->getCurrencySymbol($order->getStoreId())
