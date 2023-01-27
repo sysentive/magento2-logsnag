@@ -31,7 +31,7 @@
                 <field id="order_status" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="0">
                   <label>Order status trigger</label>
                   <tooltip>Order status on which module will log to LogSnag.</tooltip>
-                  <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                  <source_model>Magento\Sales\Model\Config\Source\Order\Status\Newprocessing</source_model>
                   <config_path>logsnag/new_order_event/order_status_trigger</config_path>
                 </field>
                 <field id="event" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="0">

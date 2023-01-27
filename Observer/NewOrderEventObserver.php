@@ -15,6 +15,8 @@ class NewOrderEventObserver implements ObserverInterface
     protected $logSnagClient;
     protected $priceCurrency;
 
+    const LOGSNAG_ORDER_DATA_TRIGGERED = 'logsnag_new_order_event_triggered';
+
     public function __construct(ConfigProvider $config, LogSnagClient $logSnagClient, PriceCurrencyInterface $priceCurrency)
     {
         $this->config = $config;
@@ -27,8 +29,9 @@ class NewOrderEventObserver implements ObserverInterface
         try {
             $order = $observer->getEvent()->getOrder();
             $config = $this->config->getNewOrderEventConfig();
+            $triggered = (bool) $order->getData(self::LOGSNAG_ORDER_DATA_TRIGGERED);
 
-            if ($config['enable'] && $order->getStatus() == $config['order_status_trigger']) {
+            if ($config['enable'] && $order->getStatus() == $config['order_status_trigger'] && !$triggered) {
                 $tags = [
                     'number' => $order->getIncrementId(),
                     'total' => $order->getGrandTotal(),
@@ -45,6 +48,8 @@ class NewOrderEventObserver implements ObserverInterface
                     $config['notify'],
                     $tags
                 );
+
+                $order->setData(self::LOGSNAG_ORDER_DATA_TRIGGERED, true)->save();
             }
         } catch (\Exception $e) {
             // Do nothing

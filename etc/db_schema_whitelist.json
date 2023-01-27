@@ -1,0 +1,7 @@
+{
+    "sales_order": {
+        "column": {
+            "logsnag_new_order_event_triggered": true
+        }
+    }
+}
