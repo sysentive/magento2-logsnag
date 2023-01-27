@@ -62,6 +62,11 @@
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                     <config_path>logsnag/new_order_event/notify</config_path>
                 </field>
+                <field id="parser" translate="label" type="select" sortOrder="7" showInDefault="1" showInWebsite="1"  showInStore="0">
+                    <label>Parser</label>
+                    <source_model>Sysentive\LogSnag\Model\Config\Source\Parser</source_model>
+                    <config_path>logsnag/new_order_event/parser</config_path>
+                </field>
             </group>
         </section>
     </system>
